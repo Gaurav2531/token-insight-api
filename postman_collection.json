@@ -1,0 +1,124 @@
+{
+  "info": {
+    "name": "Token Insight API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Token Insight - Bitcoin",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"vs_currency\": \"usd\",\n  \"history_days\": 30\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/token/bitcoin/insight",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "token", "bitcoin", "insight"]
+        }
+      }
+    },
+    {
+      "name": "Token Insight - Ethereum",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"vs_currency\": \"usd\",\n  \"history_days\": 7\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/token/ethereum/insight",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "token", "ethereum", "insight"]
+        }
+      }
+    },
+    {
+      "name": "Token Insight - Invalid Token",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"vs_currency\": \"usd\",\n  \"history_days\": 30\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/token/invalidtoken123/insight",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "token", "invalidtoken123", "insight"]
+        }
+      }
+    },
+    {
+      "name": "HyperLiquid Wallet PnL",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:3000/api/hyperliquid/0x855b4d4de5e83954a944a72beab0fd5ef2a0a36e/pnl?start=2025-01-01&end=2025-01-05",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "hyperliquid", "0x855b4d4de5e83954a944a72beab0fd5ef2a0a36e", "pnl"],
+          "query": [
+            { "key": "start", "value": "2025-01-01" },
+            { "key": "end", "value": "2025-01-05" }
+          ]
+        }
+      }
+    },
+    {
+      "name": "HyperLiquid - Missing Dates",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:3000/api/hyperliquid/0x855b4d4de5e83954a944a72beab0fd5ef2a0a36e/pnl",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "hyperliquid", "0x855b4d4de5e83954a944a72beab0fd5ef2a0a36e", "pnl"]
+        }
+      }
+    },
+    {
+      "name": "HyperLiquid - Invalid Date Format",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:3000/api/hyperliquid/0x855b4d4de5e83954a944a72beab0fd5ef2a0a36e/pnl?start=01-01-2025&end=05-01-2025",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "hyperliquid", "0x855b4d4de5e83954a944a72beab0fd5ef2a0a36e", "pnl"],
+          "query": [
+            { "key": "start", "value": "01-01-2025" },
+            { "key": "end", "value": "05-01-2025" }
+          ]
+        }
+      }
+    }
+  ]
+}

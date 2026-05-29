@@ -14,6 +14,10 @@ app.use(express.json());
 app.use('/api/token', tokenRoutes);
 app.use('/api/hyperliquid', hyperliquidRoutes);
 
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-});
+if (require.main === module) {
+    app.listen(PORT, () => {
+        console.log(`Server running on port ${PORT}`);
+    });
+}
+
+module.exports = { app };
